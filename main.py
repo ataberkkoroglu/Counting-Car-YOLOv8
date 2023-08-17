@@ -54,14 +54,14 @@ while True:
           
           if cy<int(height/2)and cx<int(width/2):
               cv2.circle(frame,(cx,cy),2,(255,0,0),-1) #we drawed middle of each detected car.
-              count_in.add(ids) #we increased concerned variable one when system is detected the car
+              count_out.add(ids) #we increased concerned variable one when system is detected the car
 
           elif cy>int(height/2) and cx>int(width/2):
               cv2.circle(frame,(cx,cy),2,(0,0,255),-1) #we drawed middle of each detected car.
-              count_out.add(ids)  #we increased concerned variable one when system is detected the car.
+              count_in.add(ids)  #we increased concerned variable one when system is detected the car.
 
-    cv2.putText(frame,f"In:{len(count_in)}",(5,25),cv2.FONT_HERSHEY_COMPLEX,1,(255,0,0),2) 
-    cv2.putText(frame,f"Out:{len(count_out)}",(5,int(height-25)),cv2.FONT_HERSHEY_COMPLEX,1,(0,0,255),2)
+    cv2.putText(frame,f"In:{len(count_out)}",(5,25),cv2.FONT_HERSHEY_COMPLEX,1,(255,0,0),2) 
+    cv2.putText(frame,f"Out:{len(count_in)}",(5,int(height-25)),cv2.FONT_HERSHEY_COMPLEX,1,(0,0,255),2)
     cv2.putText(frame,f"FPS=%.2f"%fps,(int(width-180),25),cv2.FONT_HERSHEY_SIMPLEX,1,(0,255,0),2)     
           
     cv2.imshow("Frame",frame) #we showed each frame.
